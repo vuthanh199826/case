@@ -174,7 +174,7 @@ function checkBulletOfBoss() {
         for (let j = 0; j < boss[i].bulletsOfBoss.length; j++) {
             if (checkCrash(boss[i].bulletsOfBoss[j], tank)) {
                 boss[i].bulletsOfBoss.splice(j, 1);
-                tank.blood -= 10;
+                tank.blood -= 30;
                 CheckLoser();
                 break;
             }

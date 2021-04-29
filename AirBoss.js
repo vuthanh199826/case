@@ -6,10 +6,10 @@ function AirBoss(id){
     this.bulletsOfAir = [];
     this.width = 130;
     this.height = 130;
-    this.speedX = 6;
-    this.speedY = 6;
+    this.speedX = 8;
+    this.speedY = 8;
     this.direction = 'down';
-    this.reloadCount = 10;
+    this.reloadCount = 5;
     this.count = 0;
     this.canFire = true;
 

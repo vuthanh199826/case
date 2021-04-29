@@ -98,13 +98,13 @@ function FinalBoss(id){
     }
     this.fire = function () {
         if(!this.canFire) return;
-        if(this.blood<1000){
+        if(this.blood<1500){
             this.reloadCount = 20;
         let bullet1 = new Bullet(this.x + 50, this.y+50,"topleft");this.bulletsOfFinalBoss.push(bullet1);
         let bullet2 = new Bullet(this.x + 50, this.y+50,'topright');this.bulletsOfFinalBoss.push(bullet2);
         let bullet3 = new Bullet(this.x + 50, this.y+50,'botleft');this.bulletsOfFinalBoss.push(bullet3);
         let bullet4 = new Bullet(this.x + 50, this.y+50,'botright');this.bulletsOfFinalBoss.push(bullet4);}
-        if(this.blood<500){
+        if(this.blood<700){
             this.reloadCount = 10;
         let bullet5 = new Bullet(this.x + 50, this.y+50,"left");this.bulletsOfFinalBoss.push(bullet5);
         let bullet6 = new Bullet(this.x + 50, this.y+50,'right');this.bulletsOfFinalBoss.push(bullet6);
