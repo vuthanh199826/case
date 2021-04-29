@@ -8,7 +8,7 @@ function clearAll() {
 
 function Tank(x, y, id) {
     this.power = 1;
-    this.blood = 100;
+    this.blood = 200;
     this.score = 0;
     this.bullets = [];
     this.x = x;
