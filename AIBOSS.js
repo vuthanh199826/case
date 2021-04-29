@@ -158,7 +158,7 @@ function checkCrashWithBoss() {
                 }else if(tank.power>=5){
                     boss[j].blood -= 20;
                 }
-                if (boss[j].blood === 0) {
+                if (boss[j].blood <= 0) {
                     boss.splice(j, 1);
                     tank.score += 100;
                 }
