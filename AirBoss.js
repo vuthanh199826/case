@@ -99,8 +99,10 @@ function AirBoss(id){
     }
     this.fire = function () {
         if(!this.canFire) return;
-
-
+        if(this.blood<100){
+            this.speedX=10;
+            this.speedY=10;
+        }
         let bullet = new Bullet(this.x + 50, this.y+50,this.direction);
         bullet.speedXoB = 10;
         bullet.speedYoB = 10;
