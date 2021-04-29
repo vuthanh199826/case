@@ -8,7 +8,7 @@ function clearAll() {
 
 function Tank(x, y, id) {
     this.power = 1;
-    this.blood = 1000;
+    this.blood = 500;
     this.score = 0;
     this.bullets = [];
     this.x = x;
@@ -36,7 +36,7 @@ function Tank(x, y, id) {
         } else {
             ctx.fillStyle = "rgb(164,10,10)";
         }
-        ctx.fillRect(this.x, this.y -15, this.blood * 70 / 1000, 10);
+        ctx.fillRect(this.x, this.y -15, this.blood * 70 / 500, 10);
     }
     this.moveUp = function () {
         this.id = "up";
