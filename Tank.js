@@ -36,7 +36,7 @@ function Tank(x, y, id) {
         } else {
             ctx.fillStyle = "rgb(164,10,10)";
         }
-        ctx.fillRect(this.x, this.y -15, this.blood * 70 / 100, 10);
+        ctx.fillRect(this.x, this.y -15, this.blood * 70 / 200, 10);
     }
     this.moveUp = function () {
         this.id = "up";

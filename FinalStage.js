@@ -25,7 +25,7 @@ function FinalBoss(id){
         ctx.fillStyle = 'white';
         ctx.fillRect(0, 0,  1350 , 5);
         ctx.fillStyle = "rgb(164,10,10)";
-        ctx.fillRect(0, 0, this.blood * 1350 / 1000, 5);
+        ctx.fillRect(0, 0, this.blood * 1350 / 2000, 5);
     }
 
     this.moveUp = function (){
@@ -196,7 +196,7 @@ function checkCrashWithFinalBoss() {
         for (let j = 0; j < finalboss.length; j++) {
             if (checkCrash(tank.bullets[i], finalboss[j])) {
                 tank.bullets.splice(i, 1);
-                finalboss[j].blood -=20;
+                finalboss[j].blood -= 10;
                 if(finalboss[j].blood<=0){
                     finalboss.splice(j,1);
                     tank.score += 100;
