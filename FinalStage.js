@@ -1,5 +1,5 @@
 function FinalBoss(id){
-    this.blood = 2000;
+    this.blood = 3000;
     this.x = Math.round(Math.random()*(1000-100)+100);
     this.y = Math.round(Math.random()*(400-100)+100);
     this.id = id;
@@ -25,7 +25,7 @@ function FinalBoss(id){
         ctx.fillStyle = 'white';
         ctx.fillRect(0, 0,  1350 , 5);
         ctx.fillStyle = "rgb(164,10,10)";
-        ctx.fillRect(0, 0, this.blood * 1350 / 2000, 5);
+        ctx.fillRect(0, 0, this.blood * 1350 / 3000, 5);
     }
 
     this.moveUp = function (){
