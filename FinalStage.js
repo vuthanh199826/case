@@ -1,13 +1,13 @@
 function FinalBoss(id){
-    this.blood = 3000;
+    this.blood = 5000;
     this.x = Math.round(Math.random()*(1000-100)+100);
     this.y = Math.round(Math.random()*(400-100)+100);
     this.id = id;
     this.bulletsOfFinalBoss = [];
     this.width = 130;
     this.height = 130;
-    this.speedX = 6;
-    this.speedY = 6;
+    this.speedX = 3;
+    this.speedY = 3;
     this.direction = 'down';
     this.reloadCount = 30;
     this.count = 0;
@@ -25,7 +25,7 @@ function FinalBoss(id){
         ctx.fillStyle = 'white';
         ctx.fillRect(0, 0,  1350 , 5);
         ctx.fillStyle = "rgb(164,10,10)";
-        ctx.fillRect(0, 0, this.blood * 1350 / 3000, 5);
+        ctx.fillRect(0, 0, this.blood * 1350 / 5000, 5);
     }
 
     this.moveUp = function (){
@@ -98,22 +98,29 @@ function FinalBoss(id){
     }
     this.fire = function () {
         if(!this.canFire) return;
-        if(this.blood<1500){
+        if(this.blood<3000){
             this.reloadCount = 20;
         let bullet1 = new Bullet(this.x + 50, this.y+50,"topleft");this.bulletsOfFinalBoss.push(bullet1);
         let bullet2 = new Bullet(this.x + 50, this.y+50,'topright');this.bulletsOfFinalBoss.push(bullet2);
         let bullet3 = new Bullet(this.x + 50, this.y+50,'botleft');this.bulletsOfFinalBoss.push(bullet3);
-        let bullet4 = new Bullet(this.x + 50, this.y+50,'botright');this.bulletsOfFinalBoss.push(bullet4);}
-        if(this.blood<700){
-            this.reloadCount = 10;
+        let bullet4 = new Bullet(this.x + 50, this.y+50,'botright');this.bulletsOfFinalBoss.push(bullet4);
+        }
+        if(this.blood<1500){
+            this.reloadCount = 20;
+            this.speedX = 6;
+            this.speedY = 6;
         let bullet5 = new Bullet(this.x + 50, this.y+50,"left");this.bulletsOfFinalBoss.push(bullet5);
         let bullet6 = new Bullet(this.x + 50, this.y+50,'right');this.bulletsOfFinalBoss.push(bullet6);
         let bullet7 = new Bullet(this.x + 50, this.y+50,'up');this.bulletsOfFinalBoss.push(bullet7);
-        let bullet8 = new Bullet(this.x + 50, this.y+50,'down');this.bulletsOfFinalBoss.push(bullet8);}
+        let bullet8 = new Bullet(this.x + 50, this.y+50,'down');this.bulletsOfFinalBoss.push(bullet8);
+        }
+        if(this.blood<100){
+            this.reloadCount = 1;
+        }
 
         let bullet = new Bullet(this.x + 50, this.y+50,this.direction);
-        bullet.speedXoB = 10;
-        bullet.speedYoB = 10;
+        // bullet.speedXoB = 10;
+        // bullet.speedYoB = 10;
 
         this.bulletsOfFinalBoss.push(bullet);
         this.count = 0;
@@ -160,7 +167,7 @@ function randomDirecOfFinalBoss() {
     for (let i = 0; i < finalboss.length; i++) {
         finalboss[i].direction = finalboss[i].getDirectionOfFinalBoss(98);
         let rand = Math.floor(Math.random() * 4);
-        if (rand === 1||rand ===2 ) {
+        if (rand === 1||rand ===2 || rand ===3) {
             finalboss[i].fire();
         }
     }

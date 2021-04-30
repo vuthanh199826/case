@@ -7,7 +7,7 @@ function clearAll() {
 //Xây Class tank
 
 function Tank(x, y, id) {
-    this.power = 1;
+    this.power = 10;
     this.blood = 500;
     this.score = 0;
     this.bullets = [];

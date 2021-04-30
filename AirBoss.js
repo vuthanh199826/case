@@ -1,15 +1,15 @@
 function AirBoss(id){
-    this.blood = 1000;
+    this.blood = 3000;
     this.x = Math.round(Math.random()*(1000-100)+100);
     this.y = Math.round(Math.random()*(400-100)+100);
     this.id = id;
     this.bulletsOfAir = [];
     this.width = 130;
     this.height = 130;
-    this.speedX = 8;
-    this.speedY = 8;
+    this.speedX = 5;
+    this.speedY = 5;
     this.direction = 'down';
-    this.reloadCount = 5;
+    this.reloadCount = 35;
     this.count = 0;
     this.canFire = true;
 
@@ -26,7 +26,7 @@ function AirBoss(id){
         ctx.fillStyle = 'white';
         ctx.fillRect(0, 0,  1350 , 5);
         ctx.fillStyle = "rgb(164,10,10)";
-        ctx.fillRect(0, 0, this.blood * 1350 / 1000, 5);
+        ctx.fillRect(0, 0, this.blood * 1350 / 3000, 5);
     }
 
     this.moveUp = function (){
@@ -99,9 +99,11 @@ function AirBoss(id){
     }
     this.fire = function () {
         if(!this.canFire) return;
-        if(this.blood<100){
+        if(this.blood<1500){
             this.speedX=10;
             this.speedY=10;
+            this.reloadCount = 10;
+
         }
         let bullet = new Bullet(this.x + 50, this.y+50,this.direction);
         bullet.speedXoB = 10;
@@ -151,7 +153,7 @@ function randomDirecOfAirBoss() {
     for (let i = 0; i < airboss.length; i++) {
         airboss[i].direction = airboss[i].getDirectionOfAirBoss(98);
         let rand = Math.floor(Math.random() * 4);
-        if (rand === 1) {
+        if (rand === 1|| rand ===2) {
             airboss[i].fire();
         }
     }
