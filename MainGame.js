@@ -1,9 +1,22 @@
 let tank = new Tank(600, 370, "up");
 let over = false;
+let moveDirection = null;
 setTimeout(createEnemy, 2000);
 // createBoss();
 // createAirBoss();
 // createFinalBoss();
+
+function handleTankMovement() {
+    if (moveDirection === "up") {
+        tank.moveUp();
+    } else if (moveDirection === "down") {
+        tank.moveDown();
+    } else if (moveDirection === "left") {
+        tank.moveLeft();
+    } else if (moveDirection === "right") {
+        tank.moveRight();
+    }
+}
 
 
 
@@ -36,6 +49,7 @@ function main() {
     //Check crash with all
     checkCrashWithAllEnemie();
     // Player
+    handleTankMovement();
     tank.drawAllBullet();
     tank.reload();
     tank.drawBlood();
@@ -56,19 +70,20 @@ main();
 
 // Xây hàm điều khiển nhân vật
 
-function moveTank(evt) {
-    switch (evt.keyCode) {
+
+function handleKeyDown(event) {
+    switch (event.keyCode) {
         case 38:
-            tank.moveUp();
+            moveDirection = "up";
             break;
         case 40:
-            tank.moveDown();
+            moveDirection = "down";
             break;
         case 37:
-            tank.moveLeft();
+            moveDirection = "left";
             break;
         case 39:
-            tank.moveRight();
+            moveDirection = "right";
             break;
         case 32:
             tank.firePlus();
@@ -76,6 +91,9 @@ function moveTank(evt) {
     }
 }
 
-function move() {
-    window.addEventListener('keydown', moveTank);
+function handleKeyUp(event) {
+    moveDirection = null;
 }
+
+window.addEventListener("keydown", handleKeyDown);
+window.addEventListener("keyup", handleKeyUp);

@@ -6,8 +6,8 @@ function AutoTank(id){
     this.bulletsOfAutoTank = [];
     this.width = 70;
     this.height = 70;
-    this.speedX = 3;
-    this.speedY = 3;
+    this.speedX = 2;
+    this.speedY = 2;
     this.direction = 'down';
     this.reloadCount = 10;
     this.count = 0;

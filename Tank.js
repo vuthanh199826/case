@@ -15,8 +15,8 @@ function Tank(x, y, id) {
     this.y = y;
     this.width = 70;
     this.height = 70;
-    this.speedX = 15;
-    this.speedY = 15;
+    this.speedX = 3;
+    this.speedY = 3;
     this.id = id;
     this.reloadCount = 20;
     this.count = 0;
